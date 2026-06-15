@@ -111,7 +111,23 @@
 }
 
     .nav-logo span { color: var(--accent); }
-    .nav-links { display: flex; gap: 2rem; list-style: none; }
+     .nav-links{
+
+    display:flex;
+
+    gap:2rem;
+
+    list-style:none;
+
+    position:static;
+
+    width:auto;
+
+    height:auto;
+
+    background:none;
+
+} 
     .nav-links a {
       font-size: 0.88rem;
       font-weight: 500;
@@ -145,6 +161,10 @@
     .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; }
     .hamburger span { display: block; width: 24px; height: 2px; background: var(--text); border-radius: 2px; transition: var(--transition); }
 
+
+.hero-image{
+    z-index:1;
+}
     /* ── HERO ───────────────────────────────────────────── */
     #home {
       position: relative;
@@ -362,7 +382,6 @@
     .hero-scroll {
       position: absolute;
       bottom: 2.5rem;
-      top: 730px;
       left: 4rem;
       display: flex;
       align-items: center;
@@ -830,6 +849,20 @@
     color: var(--accent);
     font-weight: 600;
 }
+.form-divider{
+    display:flex;
+    align-items:center;
+    gap:12px;
+    margin:8px 0;
+    color:var(--muted);
+    font-size:.85rem;
+}
+
+.divider-line{
+    flex:1;
+    height:1px;
+    background:var(--border);
+}
 
 /* HEART ANIMATION */
 .heart{
@@ -857,26 +890,85 @@
 
 /* MOBILE */
 @media (max-width: 768px){
-    .footer{
-        padding: 40px 1.5rem 20px;
+
+.hero-main-name,
+.hero-outline-name{
+    font-size: clamp(3rem, 12vw, 4.5rem);
+    letter-spacing: 2px;
+}
+
+.hero-name{
+    font-size: 2rem;
+}
+.hero-socials{
+
+    justify-content:center;
+
+    flex-wrap:wrap;
+
+    gap:.8rem;
+
+}
+
+.hero-socials a{
+
+    width:45px;
+
+    height:45px;
+
+    font-size:1.2rem;
+
+}
+
+.hero-ctas{
+
+    justify-content:center;
+
+    flex-wrap:wrap;
+
+}
+
+.btn{
+
+    width:100%;
+
+    justify-content:center;
+
+}
+.footer{
+
+        padding:40px 1.5rem 20px;
+
     }
 
     .footer-container{
-        grid-template-columns: 1fr;
-        gap: 40px;
-        text-align: center;
+
+        grid-template-columns:1fr;
+
+        gap:40px;
+
+        text-align:center;
+
     }
 
     .footer-section:first-child,
+
     .contact-info{
-        max-width: 100%;
-        justify-self: center;
+
+        max-width:100%;
+
+        justify-self:center;
+
     }
 
     .footer-socials{
-        justify-content: center;
+
+        justify-content:center;
+
     }
+
 }
+    
 
     /* ── SCROLL REVEAL BASE ─────────────────────────────── */
     .reveal { opacity: 0; transform: translateY(30px); transition: opacity 0.7s ease, transform 0.7s ease; }
@@ -886,10 +978,31 @@
     @media (max-width: 900px) {
       nav { padding: 1rem 1.5rem; }
       nav.scrolled { padding: 0.7rem 1.5rem; }
-      .nav-links { display: none; position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: var(--bg); flex-direction: column; align-items: center; justify-content: center; gap: 2rem; font-size: 1.2rem; }
-      .nav-links.open { display: flex; }
+      .nav-links {  position:fixed;
+
+    top:0;
+
+    right:-100%;
+
+    width:75%;
+
+    height:100vh;
+
+    flex-direction:column;
+
+    justify-content:center;
+
+    align-items:center;
+
+    transition:right .4s ease;
+    background: var(--bg);  gap: 2rem; font-size: 1.2rem; }
+      .nav-links.open { right: 0; }
       .nav-links a { font-size: 1.1rem; }
-      .hamburger { display: flex; z-index: 200; }
+      .hamburger{
+    display:flex;
+    z-index:1000;
+}
+
       section, #home { padding: 4rem 1.5rem; }
       .about-grid, .contact-wrap { grid-template-columns: 1fr; gap: 2.5rem; }
       .avatar-placeholder { width: 220px; height: 220px; font-size: 3.5rem; }
@@ -900,12 +1013,60 @@
       .about-stats { grid-template-columns: repeat(3,1fr); }
       .hero-wrapper{ flex-direction:column-reverse; text-align:center; }
       .hero-image img{ width:250px; height:250px; }
+      .hero-wrapper{
+    flex-direction: column-reverse;
+    text-align: center;
+    gap: 2rem;
+}
+
+.hero-content{
+    max-width: 100%;
+}
+
+.hero-image{
+    margin-top: 40px;
+    flex: unset;
+}
+
+.hero-image img{
+    width: 240px;
+    height: 240px;
+}
+.about-grid,
+
+.contact-wrap,
+
+.footer-container{
+
+    grid-template-columns: 1fr;
+
+    gap: 2.5rem;
+
+}
+
+.about-text,
+
+.contact-info,
+
+.footer-section{
+
+    text-align:center;
+
+}
+
+.avatar-badge{
+
+    left:50%;
+
+    transform:translateX(-50%);
+
+}
     }
-    
-    @media (max-width: 600px) {
-      .projects-grid { grid-template-columns: 1fr; }
-      .skills-grid { grid-template-columns: repeat(3,1fr); }
-      .about-stats { grid-template-columns: repeat(3,1fr); }
+
+@media (max-width: 600px) {
+  .projects-grid { grid-template-columns: 1fr; }
+  .skills-grid { grid-template-columns: repeat(2,1fr); }
+      .about-stats { grid-template-columns: 1fr; }
     }
   </style>
 </head>
@@ -1004,7 +1165,7 @@
       <p>I'm currently seeking <strong>Software Development Engineer (SDE), Full Stack Developer, or Web Developer opportunities</strong> where I can contribute, learn from experienced professionals, and grow as a software engineer while building impactful products.</p>
       <div class="about-stats">
         <div class="stat-card">
-          <div class="stat-num">3+</div>
+          <div class="stat-num">4+</div>
           <div class="stat-label">Projects</div>
         </div>
         <div class="stat-card">
@@ -1139,8 +1300,8 @@
       <div class="project-header">
         <div class="project-icon">🍔</div>
         <div class="project-links">
-          <a href="https://github.com/anshika324/Food-ordering-website-yummybites-" title="GitHub"><i class="fab fa-github"></i></a>
-          <a href="https://yummybites-frontend.vercel.app/" title="Live Demo"><i class="fas fa-arrow-up-right-from-square"></i></a>
+          <a href="https://github.com/anshika324/Food-ordering-website-yummybites-" target="_blank" title="GitHub"><i class="fab fa-github"></i></a>
+          <a href="https://yummybites-frontend.vercel.app/" target="_blank" title="Live Demo"><i class="fas fa-arrow-up-right-from-square"></i></a>
         </div>
       </div>
       <div class="project-body">
@@ -1164,8 +1325,8 @@
       <div class="project-header">
         <div class="project-icon">📄</div>
         <div class="project-links">
-          <a href="https://github.com/anshika324/veridia-hiring-platform" title="GitHub"><i class="fab fa-github"></i></a>
-          <a href="#" title="Live Demo"><i class="fas fa-arrow-up-right-from-square"></i></a>
+          <a href="https://github.com/anshika324/veridia-hiring-platform" target="_blank" title="GitHub"><i class="fab fa-github"></i></a>
+          <a href="#" target="_blank" title="Live Demo"><i class="fas fa-arrow-up-right-from-square"></i></a>
         </div>
       </div>
       <div class="project-body">
@@ -1188,8 +1349,8 @@
       <div class="project-header">
         <div class="project-icon">🤝</div>
         <div class="project-links">
-          <a href="https://github.com/anshika324/skillBarter-platform" title="GitHub"><i class="fab fa-github"></i></a>
-          <a href="https://skill-barter-platform-6sb3.vercel.app/" title="Live Demo"><i class="fas fa-arrow-up-right-from-square"></i></a>
+          <a href="https://github.com/anshika324/skillBarter-platform" target="_blank" title="GitHub"><i class="fab fa-github"></i></a>
+          <a href="https://skill-barter-platform-6sb3.vercel.app/" target="_blank" title="Live Demo"><i class="fas fa-arrow-up-right-from-square"></i></a>
         </div>
       </div>
       <div class="project-body">
@@ -1213,11 +1374,11 @@
         <div class="project-icon">🎬</div>
 
         <div class="project-links">
-            <a href="https://github.com/anshika324/AI-Bollywood-Drama-Generator" title="GitHub">
+            <a href="https://github.com/anshika324/AI-Bollywood-Drama-Generator" target="_blank" title="GitHub">
                 <i class="fab fa-github"></i>
             </a>
 
-            <a href="YOUR_LIVE_LINK" title="Live Demo">
+            <a href="YOUR_LIVE_LINK" target="_blank" title="Live Demo">
                 <i class="fas fa-arrow-up-right-from-square"></i></a>
         </div>
     </div>
@@ -1286,9 +1447,9 @@
       <h3>Open to opportunities 🚀</h3>
       <p>I'm actively looking for full-stack developer roles and internships. Whether you have a question, a project idea, or just want to say hi — my inbox is always open.</p>
       <div class="contact-socials">
-         <a href="mailto:anshikakumari252004@gmail.com" class="social-row"><i class="fas fa-envelope"></i> mailto:anshikakumari252004@gmail.com</a>
-        <a href="https://www.linkedin.com/in/anshika-kumari-891b96261" class="social-row"><i class="fab fa-linkedin"></i> linkedin.com/in/anshika324</a>
-        <a href="https://github.com/anshika324" class="social-row"><i class="fab fa-github"></i> github.com/anshika324</a>
+         <a href="mailto:anshikakumari252004@gmail.com" target="_blank" class="social-row"><i class="fas fa-envelope"></i> mailto:anshikakumari252004@gmail.com</a>
+        <a href="https://www.linkedin.com/in/anshika-kumari-891b96261" target="_blank" class="social-row"><i class="fab fa-linkedin"></i> linkedin.com/in/anshika324</a>
+        <a href="https://github.com/anshika324" target="_blank" class="social-row"><i class="fab fa-github"></i> github.com/anshika324</a>
       </div>
     </div>
     <form class="contact-form reveal" onsubmit="handleSubmit(event)">
@@ -1482,4 +1643,4 @@
 }
 </script>
 </body>
-</html>
+</html>   
